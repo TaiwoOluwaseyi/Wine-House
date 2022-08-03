@@ -13,7 +13,7 @@ const progressCounter = () => {
     circle.style.backgroundColor = "transparent";
   });
   document.querySelector(`.circle-${counter2}`).style.backgroundColor = "#ddd";
-}
+};
 
 const pageController = () => {
   bool = true;
@@ -37,7 +37,7 @@ const pageController = () => {
     counter1 = 4;
     counter2 = 5;
     progressCounter();
-    bool = false
+    bool = false;
   }
   progressCounter();
   return bool;
@@ -57,30 +57,40 @@ window.addEventListener("wheel", (e) => {
   pageController();
   progressCounter();
   console.log(counter1, counter2);
-  
 
-  bool && document.querySelector(
-    `.section-${deltaY ? counter1 : counter2}`
-  ).style.left = '${deltaY ? "-100vw" : "0"}')
-  ;
-;
+  if (bool) {
+    document.querySelector(
+      `.section-${deltaY ? counter1 : counter2}`
+    ).style.left = '${deltaY ? "-100vw" : "0"}';
+
+    document.querySelector(
+      `.section-${deltaY ? counter1 : counter2}-wrapper`
+    ).style.transform = `scale(${deltaY ? "1.5" : "1"})`;
+
+    document.querySelector(
+      `.section-${deltaY ? counter1 + 1 : counter2 + 1}-wrapper`
+    ).style.transform = `scale(${deltaY ? "1" : "1.5"})`;
+  }
+});
 
 document.querySelector(".left-btn").addEventListener("click", () => {
   counter1--;
   counter2--;
- pageController() && document.querySelector(`.section-${counter2}`).style.left = "0";
+  pageController() &&
+    (document.querySelector(`.section-${counter2}`).style.left = "0");
 });
 
 document.querySelector(".right-btn").addEventListener("click", () => {
   counter1++;
   counter2++;
-  document.querySelector(`.section-${counter1}`).style.left = "-100vw";
+  pageController () &&
+  (document.querySelector(`.section-${counter1}`).style.left = "-100vw");
 });
 
-document.querySelector('.grapes-img').addEventListener('mouseover', () => {
-  document.querySelector('.section-3-wrapper').style.opacity = '0.5';
+document.querySelector(".grapes-img").addEventListener("mouseover", () => {
+  document.querySelector(".section-3-wrapper").style.opacity = "0.5";
 });
 
-document.querySelector('.grapes-img').addEventListener('mouseout', () => {
-  document.querySelector('.section-3-wrapper').style.opacity = '1';
+document.querySelector(".grapes-img").addEventListener("mouseout", () => {
+  document.querySelector(".section-3-wrapper").style.opacity = "1";
 });
