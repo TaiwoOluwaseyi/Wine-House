@@ -5,6 +5,7 @@ let bool = true;
 const sections = document.querySelectorAll("section");
 const progress = document.querySelectorAll(".progress h2");
 const circles = document.querySelectorAll(".circle");
+const menu = document.querySelector(".menu");
 
 const progressCounter = () => {
   progress.textContent = `${counter2}/${sections.length}`;
@@ -93,4 +94,9 @@ document.querySelector(".grapes-img").addEventListener("mouseover", () => {
 
 document.querySelector(".grapes-img").addEventListener("mouseout", () => {
   document.querySelector(".section-3-wrapper").style.opacity = "1";
+});
+
+// Hamburger
+menu.addEventListener("click", () => {
+  document.querySelector(".navbar").classList.toggle("change");
 });
