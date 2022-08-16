@@ -6,6 +6,9 @@ const sections = document.querySelectorAll("section");
 const progress = document.querySelectorAll(".progress h2");
 const circles = document.querySelectorAll(".circle");
 const menu = document.querySelector(".menu");
+const section1wrapper = document.querySelector(".section-1-wrapper");
+
+section1wrapper.style.transform = "scale(1)";
 
 const progressCounter = () => {
   progress.textContent = `${counter2}/${sections.length}`;
@@ -59,7 +62,7 @@ window.addEventListener("wheel", (e) => {
   progressCounter();
   console.log(counter1, counter2);
 
-  if (bool) {
+  bool && {
     document.querySelector(
       `.section-${deltaY ? counter1 : counter2}`
     ).style.left = '${deltaY ? "-100vw" : "0"}';
