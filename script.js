@@ -67,7 +67,7 @@ window.addEventListener("wheel", (e) => {
   progressCounter();
   console.log(counter1, counter2);
 
-    if (bool) {
+  if (bool) {
     document.querySelector(
       `.section-${deltaY ? counter1 : counter2}`
     ).style.left = `${deltaY ? "-100vw" : "0"}`;
@@ -87,28 +87,28 @@ document.querySelector(".left-btn").addEventListener("click", () => {
   counter2--;
   pageController() &&
     (document.querySelector(`.section-${counter2}`).style.left = "0");
-
-    if (bool) {
-      document.querySelector(`.section-${counter2}-wrapper`).style.transform =
-        "scale(1)";
-      document.querySelector(
-        `.section-${counter2 + 1}-wrapper`
-      ).style.transform = "scale(1.5)";
-    }
+  document.querySelector("#page").innerHTML = counter1 + 1;
+  if (bool) {
+    document.querySelector(`.section-${counter2}-wrapper`).style.transform =
+      "scale(1)";
+    document.querySelector(`.section-${counter2 + 1}-wrapper`).style.transform =
+      "scale(1.5)";
+  }
 });
 
 document.querySelector(".right-btn").addEventListener("click", () => {
   counter1++;
   counter2++;
   pageController() &&
-  (document.querySelector(`.section-${counter1}`).style.left = "-100vw");
+    (document.querySelector(`.section-${counter1}`).style.left = "-100vw");
+  document.querySelector("#page").innerHTML = counter1 + 1;
 
   if (bool) {
     document.querySelector(`.section-${counter2}-wrapper`).style.transform =
       "scale(1)";
     document.querySelector(`.section-${counter1}-wrapper`).style.transform =
       "scale(1.5)";
-  } 
+  }
 });
 
 document.querySelector(".grapes-img").addEventListener("mouseover", () => {
@@ -121,5 +121,5 @@ document.querySelector(".grapes-img").addEventListener("mouseout", () => {
 
 // Hamburger
 menu.addEventListener("click", () => {
-  document.querySelector(".navbar").classList.toggle("change");
+  document.querySelector(".nav-bar").classList.toggle("change");
 });
